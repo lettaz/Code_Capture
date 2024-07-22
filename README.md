@@ -1,5 +1,9 @@
 # Capture Project
 
+### NOTICE
+
+KINDLY LEAVE A STAR, I MEAN IT WON'T COST YOU ANYTHING
+
 This project contains a script to capture all files and their contents from a specified directory, excluding certain files or directories specified in an ignore list. The captured contents are written to a single output file.
 
 ## Why This Project?
