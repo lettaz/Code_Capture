@@ -12,12 +12,11 @@ Moreover, when trying to get assistance from language models (LLMs) like OpenAI'
 
 This script automates the process of capturing the content of all files in a project directory. By running the script, you can:
 
-- Automatically read and compile the content of all files within your project directory, with ability to copy only specific files or files from a directory.
+- Automatically read and compile the content of all files within your project directory, with the ability to copy only specific files or files from a directory.
 - Exclude specific files or directories (like `node_modules`, build directories, or log files) using an ignore list.
 - Generate a single, comprehensive output file (`captured_code.txt`) that contains the content of all relevant files in your project.
 
 This output file can be easily shared with others or input into an LLM, providing a complete and accurate picture of your project. This automation not only saves time but also ensures consistency and completeness, making it easier to get the help you need.
-
 
 ## Project Structure
 
@@ -25,12 +24,14 @@ This output file can be easily shared with others or input into an LLM, providin
 capture-project/
 ├── example_result.txt
 ├── ignore_list.txt
+├── include_list.txt
 ├── README.md
 └── capture_files.sh
 ```
 
 - `example_result.txt`: Example output of the script.
 - `ignore_list.txt`: List of files and directories to ignore.
+- `include_list.txt`: List of files and directories to include.
 - `README.md`: Project documentation.
 - `capture_files.sh`: Shell script to capture files and their contents.
 
@@ -45,22 +46,24 @@ git clone https://github.com/yourusername/capture-project.git
 cd capture-project
 ```
 
-### Step 2: Copy Script and Ignore List to Your Project
+### Step 2: Copy Script and Ignore/Include Lists to Your Project
 
-Copy `capture_files.sh` and `ignore_list.txt` from this repository to the root directory of your project.
+Copy `capture_files.sh`, `ignore_list.txt`, and `include_list.txt` from this repository to the root directory of your project.
 
 ```bash
 cp capture_files.sh /path/to/your/project/
 cp ignore_list.txt /path/to/your/project/
+cp include_list.txt /path/to/your/project/
 ```
 
-### Step 3: Modify the Ignore List
+### Step 3: Modify the Ignore and Include Lists
 
-Navigate to your project directory and update the `ignore_list.txt` file with the patterns of files and directories you want to ignore.
+Navigate to your project directory and update the `ignore_list.txt` and `include_list.txt` files with the patterns of files and directories you want to ignore or include.
 
 ```bash
 cd /path/to/your/project/
 nano ignore_list.txt
+nano include_list.txt
 ```
 
 Add patterns to the `ignore_list.txt`, for example:
@@ -70,6 +73,13 @@ node_modules
 .env
 dist
 *.log
+```
+
+Add patterns to the `include_list.txt`, for example:
+
+```
+src/
+README.md
 ```
 
 ### Step 4: Run the Script
